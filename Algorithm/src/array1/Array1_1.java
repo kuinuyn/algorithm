@@ -7,7 +7,18 @@ public class Array1_1 {
 	}
 	
 	public static int maxProfit(int[] nums) {
+		int max = 0;
+		int sofaNum = nums[0];
 		
-		return 0;
+		for(int num : nums) {
+			if(num < sofaNum) {
+				sofaNum = num;
+			}
+			else {
+				max = Math.max(max, num-sofaNum);
+			}
+		}
+		
+		return max;
 	}
 }

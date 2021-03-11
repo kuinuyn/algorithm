@@ -50,6 +50,7 @@ public class LinkedListNode {
 		System.out.println(l.data);
 	}
 	
+	//중복제거
 	public void dupRemove() {
 		LinkedList l = header.next;
 		
@@ -81,5 +82,9 @@ public class LinkedListNode {
 			}
 			l = l.next;
 		}
+	}
+	
+	public LinkedList getFirst() {
+		return header;
 	}
 }
