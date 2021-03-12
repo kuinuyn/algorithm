@@ -3,22 +3,22 @@ package list;
 import java.util.HashSet;
 
 public class LinkedListNode {
-	LinkedList header;
+	Node header;
 	
-	static class LinkedList {
+	static class Node {
 		Object data;
-		LinkedList next = null;
+		Node next = null;
 	}
 	
 	public LinkedListNode() {
-		header = new LinkedList();
+		header = new Node();
 	}
 	
 	public void append(Object d) {
-		LinkedList end = new LinkedList();
+		Node end = new Node();
 		end.data = d;
 		
-		LinkedList start = header;
+		Node start = header;
 		while(start.next != null) {
 			start = start.next;
 		}
@@ -27,7 +27,7 @@ public class LinkedListNode {
 	}
 	
 	public void delete(Object d) {
-		LinkedList start = header;
+		Node start = header;
 		
 		while(start.next != null) {
 			if(start.next.data.equals(d)) {
@@ -40,7 +40,7 @@ public class LinkedListNode {
 	}
 	
 	public void desc() {
-		LinkedList l = header.next;
+		Node l = header.next;
 		
 		while(l.next != null) {
 			System.out.print(l.data+" -> ");
@@ -52,7 +52,7 @@ public class LinkedListNode {
 	
 	//중복제거
 	public void dupRemove() {
-		LinkedList l = header.next;
+		Node l = header.next;
 		
 		//1. 버퍼를 이용한 방식
 		HashSet<Object> remove = new HashSet<>();
@@ -69,7 +69,7 @@ public class LinkedListNode {
 		}
 		
 		//2. 버퍼가 없이 index를 이용하는 방식
-		LinkedList r = null;
+		Node r = null;
 		while(l.next != null) {
 			r = l;
 			while(r.next != null) {
@@ -84,7 +84,7 @@ public class LinkedListNode {
 		}
 	}
 	
-	public LinkedList getFirst() {
+	public Node getFirst() {
 		return header;
 	}
 }
