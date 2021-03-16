@@ -1,16 +1,16 @@
 package list;
 
-public class LinkedList {
+public class Node {
 	Object data;
-	LinkedList next = null;
+	Node next = null;
 	
-	public LinkedList(Object d) {
+	public Node(Object d) {
 		this.data = d;
 	}
 	
 	public void append(Object d) {
-		LinkedList end = new LinkedList(d);
-		LinkedList l = this;
+		Node end = new Node(d);
+		Node l = this;
 		while(l.next != null) {
 			l = l.next;
 		}
@@ -19,7 +19,7 @@ public class LinkedList {
 	}
 	
 	public void delete(Object d) {
-		LinkedList l = this;
+		Node l = this;
 		
 		while(l.next != null) {
 			if(l.next.data.equals(d)) {
@@ -32,7 +32,7 @@ public class LinkedList {
 	}
 	
 	public void desc() {
-		LinkedList l = this;
+		Node l = this;
 		
 		while(l.next != null) {
 			System.out.print(l.data+" -> ");

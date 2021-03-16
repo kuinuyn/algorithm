@@ -4,8 +4,9 @@ import java.util.HashSet;
 
 public class LinkedListNode {
 	Node header;
+	int size;
 	
-	static class Node {
+	public static class Node {
 		Object data;
 		Node next = null;
 	}
@@ -23,6 +24,7 @@ public class LinkedListNode {
 			start = start.next;
 		}
 		
+		size++;
 		start.next = end;
 	}
 	
@@ -32,6 +34,7 @@ public class LinkedListNode {
 		while(start.next != null) {
 			if(start.next.data.equals(d)) {
 				start.next = start.next.next;
+				size--;
 			}
 			else {
 				start = start.next;
@@ -59,6 +62,7 @@ public class LinkedListNode {
 		while(l.next != null) {
 			remove.add(l.data);
 			if(remove.contains(l.next.data)) {
+				size--;
 				l.next = l.next.next;
 			}
 			else {
@@ -84,7 +88,76 @@ public class LinkedListNode {
 		}
 	}
 	
+	//목록을 카운팅하여 역으로 들어오는 방법
+	public Node KthToLastCount(Node first, int k) {
+		Node n = first;
+		
+		int total = 1;
+		while(n.next != null) {
+			total++;
+			n = n.next;
+		}
+		
+		n = first;
+		for(int i=1; i<total-k+1; i++) {
+			n = n.next;
+		}
+		
+		return n;
+	}
+	
+	//재귀함수를 이용하여 뒤에서부터 카운트하는 방법
+	public int KthToLastRecur(Node n, int k) {
+		if(n == null) {
+			return 0;
+		}
+		
+		int count = KthToLastRecur(n.next, k)+1;
+		
+		if(k == count) {
+			System.out.println(k+" th to last node is "+n.data);
+		}
+		
+		return count;
+	}
+	
 	public Node getFirst() {
 		return header;
+	}
+	
+	public int size() {
+		return size;
+	}
+	
+	public Object get(Node n) {
+		Node first = header.next;
+		
+		while(first.next != null) {
+			if(n.data == first.data) {
+				break;
+			}
+			else {
+				first = first.next;
+			}
+		}
+		
+		return first.data;
+	}
+	
+	public Node KthToLastPointer(Node first, int k) {
+		Node n1 = first;
+		Node n2 = first;
+		
+		for(int i=0; i<k; i++) {
+			if(n1 == null) return null;
+			n1 = n1.next;
+		}
+		
+		while(n1 != null) {
+			n1 = n1.next;
+			n2 = n2.next;
+		}
+		
+		return n2;
 	}
 }
