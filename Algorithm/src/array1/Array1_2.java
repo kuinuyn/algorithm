@@ -1,7 +1,6 @@
 package array1;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 public class Array1_2 {
@@ -17,7 +16,7 @@ public class Array1_2 {
 		int count = 0;
 		int sum = 0;
 		
-		/*for(int i=0; i<nums.length; i++) {
+		for(int i=0; i<nums.length; i++) {
 			sum = 0;
 			for(int j=i; j<nums.length; j++) {
 				sum += nums[j];
@@ -25,7 +24,7 @@ public class Array1_2 {
 					count++;
 				}
 			}
-		}*/
+		}
 		
 		return count;
 	}

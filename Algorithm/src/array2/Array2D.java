@@ -8,7 +8,7 @@ public class Array2D {
 		//1. 2차원배열의 크기가 같을 경우
 		int[][] grid = new int[3][4];
 //		System.out.println("===1번======");
-//		print(grid);
+		print(grid);
 		
 		//2. 2차원배열크기가 다른경우
 		int[][] grid2 = new int[3][];
@@ -16,12 +16,12 @@ public class Array2D {
 		grid2[0] = new int[1];
 		grid2[1] = new int[1];
 		grid2[2] = new int[5];
-//		print(grid2);
+		print(grid2);
 		
 		//3. 초기화와 동시에 값을 넣을때
 		int[][] grid3 = {{1,2}, {0,0,3}, {4,5,6}};
 //		System.out.println("===3번======");
-//		print(grid3);
+		print(grid3);
 		
 		int[][] nums = { { 1, 2 }, { 2, 3 } };
 		int[] nums1 = { 1, 2 };

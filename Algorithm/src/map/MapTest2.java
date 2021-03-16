@@ -50,6 +50,7 @@ public class MapTest2 {
 	}*/
 	
 	
+	@SuppressWarnings("unchecked")
 	public static List<Integer> topFrequent(int[] nums, int k) {
 		Map<Integer, Integer> hm = new HashMap<>();
 		List<Integer>[] list = new List[nums.length + 1];
