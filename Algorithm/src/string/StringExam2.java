@@ -10,7 +10,8 @@ public class StringExam2 {
 
 //		String s = "(()))";
 //		String s = "(()";
-		String s = "))(())((";
+//		String s = "))(())((";
+		String s = "))aa";
 		
 		System.out.print(solve(s));
 	}
@@ -34,7 +35,7 @@ public class StringExam2 {
 		}
 		
 		
-		System.out.println(copy.toString());
+		//System.out.println(copy.toString());
 		
 		for(int i=copy.length()-1; i>=0; i--) {
 			//System.out.println("sb "+copy.charAt(i));

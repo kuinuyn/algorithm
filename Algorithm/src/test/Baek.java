@@ -1,12 +1,17 @@
 package test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 
 public class Baek {
 	public static void main(String[] args) {
+		
 		/*Scanner scan = new Scanner(System.in);
 		
 		int x = scan.nextInt();
@@ -25,7 +30,9 @@ public class Baek {
 //		int[] numbers = {53, 346, 341, 551, 9};
 //		int[] numbers = {531, 346, 341, 551, 999};
 //		int[] numbers = {991, 929, 949, 959, 999};
-		int[] numbers = {9, 111, 2, 9, 54, 991, 929, 949, 959, 999, 53, 346, 341, 551, 9, 6, 10, 2, 33, 30, 34, 5, 9};
+//		int[] numbers = {9, 111, 2, 9, 54, 991, 929, 949, 959, 999, 53, 346, 341, 551, 9, 6, 10, 2, 33, 30, 34, 5, 9};
+//		int[] numbers = {0, 1000, 10, 100, 0, 1, 3};
+		int[] numbers = {0, 0};
 		String answer = solution(numbers);
 		System.out.println(answer);
 	}
@@ -43,42 +50,23 @@ public class Baek {
 	}
 	
 	public static String solution(int[] numbers) {
-		String answer = "";
+		StringBuffer answer = new StringBuffer();
 		
-		char n1 = 0, n2 = 0, temp = 0;
-		int length = 0;
-		
-		
-		for(int i=0; i<numbers.length; i++) {
-			for(int j=i+1; j<numbers.length; j++) {
-				length = Math.max(String.valueOf(numbers[i]).length(), String.valueOf(numbers[j]).length());
-				
-				for(int x=0; x<length; x++) {
-					n1 = String.valueOf(numbers[i]).length() <= x ? n1 : String.valueOf(numbers[i]).charAt(x);
-					n2 = String.valueOf(numbers[j]).length() <= x ? n2 : String.valueOf(numbers[j]).charAt(x);
-					
-					if(n1 < n2) {
-						temp = (char)numbers[i];
-						numbers[i] = numbers[j];
-						numbers[j] = temp;
-						
-						break;
-					}
-					else if(n1 == n2) {
-						continue;
-					}
-					else {
-						break;
-					}
-				}
-			}
+		List<Integer> list = new ArrayList<>();
+		for(int i = 0; i < numbers.length; i++) {
+			list.add(numbers[i]);
 		}
 		
-		for(int i : numbers) {
-			System.out.println(i);
-			answer += i;
+		//{1000, 10, 100, 0, 1, 3};
+		Collections.sort(list, (a, b) -> {
+			String as = String.valueOf(a), bs = String.valueOf(b);
+			return Integer.compare(Integer.parseInt(bs + as), Integer.parseInt(as + bs));
+		});
+		
+		for(int i = 0; i < list.size(); i++) {
+			answer.append(list.get(i));
 		}
 		
-		return answer;
+		return answer.toString().charAt(0) == '0' ? "0" : answer.toString();
 	}
 }
